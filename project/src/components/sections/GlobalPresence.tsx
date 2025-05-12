@@ -1,0 +1,151 @@
+import React, { useState } from 'react';
+import Section from '../ui/Section';
+import { MapPin } from 'lucide-react';
+
+const GlobalPresence = () => {
+  const [activeLocation, setActiveLocation] = useState('usa');
+
+  const locations = [
+    {
+      id: 'usa',
+      name: 'United States',
+      city: 'Plano, Texas',
+      year: '2020',
+      address: '300 Interpace Parkway, Plano, TX',
+      coordinates: { x: '25%', y: '40%' },
+      image: 'https://images.pexels.com/photos/2846815/pexels-photo-2846815.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    },
+    {
+      id: 'india',
+      name: 'India',
+      city: 'Chennai',
+      year: '2021',
+      address: 'No.37, GST Road, Chromepet, Chennai - 600044',
+      coordinates: { x: '67%', y: '51%' },
+      image: 'https://images.pexels.com/photos/1538177/pexels-photo-1538177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    },
+    {
+      id: 'oman',
+      name: 'Oman',
+      city: 'Muscat',
+      year: '2022',
+      address: 'Al Khuwair, Muscat, Oman',
+      coordinates: { x: '58%', y: '48%' },
+      image: 'https://images.pexels.com/photos/3214995/pexels-photo-3214995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    },
+    {
+      id: 'netherlands',
+      name: 'Netherlands',
+      city: 'Hague',
+      year: '2023',
+      address: 'The Hague, Netherlands',
+      coordinates: { x: '70%', y: '55%' },
+      image: 'https://images.pexels.com/photos/248722/pexels-photo-248722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    }
+  ];
+
+  const activeOffice = locations.find(l => l.id === activeLocation) || locations[0];
+
+  return (
+    <Section 
+      id="global-presence" 
+      title="Our Global Presence"
+      subtitle="Delivering excellence across continents with local expertise and global insights"
+      className="bg-gray-50"
+    >
+      {/* Timeline */}
+      <div className="relative mb-16">
+        <div className="flex justify-between items-center mb-8">
+          {locations.map((location, index) => (
+            <div 
+              key={location.id}
+              className="flex-1 text-center relative"
+              onClick={() => setActiveLocation(location.id)}
+            >
+              <div 
+                className={`
+                  w-8 h-8 rounded-full mx-auto mb-2 cursor-pointer
+                  flex items-center justify-center
+                  ${activeLocation === location.id 
+                    ? 'bg-blue-600 scale-125' 
+                    : 'bg-blue-200 hover:bg-blue-300'
+                  }
+                  transition-all duration-300
+                `}
+              >
+                <div className="w-3 h-3 rounded-full bg-white" />
+              </div>
+              <div className="text-xl font-bold text-blue-600">{location.year}</div>
+              <div className="mt-2 font-medium">{location.city}</div>
+              <div className="text-sm text-gray-600">{location.name}</div>
+              {index < locations.length - 1 && (
+                <div className="absolute top-3 left-[50%] w-full h-[2px] bg-blue-200" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Map and Office Details */}
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+          <img 
+            src={activeOffice.image}
+            alt={`${activeOffice.city} office`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 className="text-2xl font-bold mb-2">{activeOffice.city}</h3>
+            <p className="text-gray-200">{activeOffice.address}</p>
+          </div>
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <div className="flex items-center mb-6">
+            <MapPin size={24} className="text-blue-600 mr-2" />
+            <h3 className="text-2xl font-bold text-gray-900">
+              {activeOffice.name} Office
+            </h3>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-2">Address</h4>
+              <p className="text-gray-600">{activeOffice.address}</p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-2">Contact</h4>
+              <p className="text-gray-600">Phone: +1 (234) 567-890</p>
+              <p className="text-gray-600">Email: info@trinitytechsolutions.com</p>
+            </div>
+
+            <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+              Get Directions
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Location Selector */}
+      <div className="flex flex-wrap justify-center gap-2 mt-8 md:hidden">
+        {locations.map((location) => (
+          <button
+            key={location.id}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              activeLocation === location.id
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+            onClick={() => setActiveLocation(location.id)}
+          >
+            {location.city}
+          </button>
+        ))}
+      </div>
+    </Section>
+  );
+};
+
+export default GlobalPresence;
