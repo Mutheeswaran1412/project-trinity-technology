@@ -13,35 +13,47 @@ const About = () => {
   return (
     <Section 
       id="about" 
-      title="About Trinity Technology Solution"
-      subtitle="Your Trusted Partner in Digital Transformation"
+      title={
+        <span className="flex flex-col items-center text-white">
+          <img
+            src="https://trinitetech.com/wp-content/uploads/2024/02/Trinity-Logo-1.svg"
+            alt="Trinity Logo"
+            className="h-14 mb-2"
+            style={{ maxWidth: 120 }}
+          />
+          About Trinity Technology Solution
+        </span>
+      }
+      subtitle={<span className="text-white">Your Trusted Partner in Digital Transformation</span>}
+      className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white"
     >
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-          <p className="text-gray-600 mb-6">
+          <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+          <p className="mb-6">
             Founded in 2020, Trinity Technology Solution LLC has been at the forefront of digital transformation, helping enterprises harness the power of data analytics and cloud solutions. Our commitment to excellence and innovation has made us a trusted partner for businesses worldwide.
           </p>
-          <p className="text-gray-600 mb-6">
+          <p className="mb-6">
             As a certified Databricks partner, we specialize in data engineering, analytics, and AI solutions that drive business growth and operational efficiency. Our expertise spans across cloud migration, data governance, and enterprise-scale digital transformation initiatives.
           </p>
-          
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-            <h4 className="font-semibold text-blue-800 mb-2">Official Databricks Partner</h4>
-            <p className="text-blue-700">
+          <div className="bg-blue-100 border-l-4 border-blue-300 text-blue-900 p-4 mb-6">
+            <h4 className="font-semibold mb-2">Official Databricks Partner</h4>
+            <p>
               Our strategic partnership with Databricks enables us to deliver cutting-edge lakehouse architecture and advanced analytics solutions that transform how organizations leverage their data assets.
             </p>
           </div>
         </div>
-
         <div className="grid grid-cols-2 gap-6">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
+            <div
+              key={index}
+              className="bg-[#0D1321] p-6 rounded-lg shadow-md border border-gray-800 text-center text-white"
+            >
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-full mb-4">
                 {stat.icon}
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-500">{stat.label}</div>
+              <div className="text-3xl font-bold mb-1">{stat.value}</div>
+              <div className="text-sm text-gray-300">{stat.label}</div>
             </div>
           ))}
         </div>

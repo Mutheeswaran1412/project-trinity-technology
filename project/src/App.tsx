@@ -10,7 +10,8 @@ import Insights from './components/sections/Insights';
 import Careers from './components/sections/Careers';
 import Contact from './components/sections/Contact';
 import GlobalPresence from './components/sections/GlobalPresence';
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 function App() {
   return (
     <div className="font-sans">

@@ -13,25 +13,25 @@ const GlobalPresence = () => {
       year: '2020',
       address: '300 Interpace Parkway, Plano, TX',
       coordinates: { x: '25%', y: '40%' },
-      image: 'https://images.pexels.com/photos/2846815/pexels-photo-2846815.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+      image: 'https://content.civicplus.com/api/assets/5d325e2d-432a-4e7b-aaed-f9d662512dc5?cache=1800'
     },
     {
       id: 'india',
       name: 'India',
       city: 'Chennai',
       year: '2021',
-      address: 'No.37, GST Road, Chromepet, Chennai - 600044',
+      address: 'ambal nagar, ekkatuthangal, Chennai - 600044',
       coordinates: { x: '67%', y: '51%' },
-      image: 'https://images.pexels.com/photos/1538177/pexels-photo-1538177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Tidel_Park.jpg/500px-Tidel_Park.jpg'
     },
     {
       id: 'oman',
       name: 'Oman',
       city: 'Muscat',
       year: '2022',
-      address: 'Al Khuwair, Muscat, Oman',
+      address: ' Muscat, Oman',
       coordinates: { x: '58%', y: '48%' },
-      image: 'https://images.pexels.com/photos/3214995/pexels-photo-3214995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+      image: 'https://cdn.britannica.com/70/188370-050-EE6758B6/Muscat-Oman.jpg'
     },
     {
       id: 'netherlands',
@@ -40,7 +40,7 @@ const GlobalPresence = () => {
       year: '2023',
       address: 'The Hague, Netherlands',
       coordinates: { x: '70%', y: '55%' },
-      image: 'https://images.pexels.com/photos/248722/pexels-photo-248722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+      image: 'https://cdn.britannica.com/89/102289-050-EF27EAA0/Hague-Neth.jpg'
     }
   ];
 
@@ -49,9 +49,9 @@ const GlobalPresence = () => {
   return (
     <Section 
       id="global-presence" 
-      title="Our Global Presence"
-      subtitle="Delivering excellence across continents with local expertise and global insights"
-      className="bg-gray-50"
+      title={<span className="text-white">Our Global Presence</span>} // Changed title color to white
+      subtitle={<span className="text-white">Delivering excellence across continents with local expertise and global insights</span>} // Changed subtitle color to white
+      className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white"
     >
       {/* Timeline */}
       <div className="relative mb-16">
@@ -75,9 +75,9 @@ const GlobalPresence = () => {
               >
                 <div className="w-3 h-3 rounded-full bg-white" />
               </div>
-              <div className="text-xl font-bold text-blue-600">{location.year}</div>
-              <div className="mt-2 font-medium">{location.city}</div>
-              <div className="text-sm text-gray-600">{location.name}</div>
+              <div className="text-xl font-bold text-white">{location.year}</div>
+              <div className="mt-2 font-medium text-white">{location.city}</div>
+              <div className="text-sm text-gray-300">{location.name}</div>
               {index < locations.length - 1 && (
                 <div className="absolute top-3 left-[50%] w-full h-[2px] bg-blue-200" />
               )}
@@ -87,7 +87,7 @@ const GlobalPresence = () => {
       </div>
 
       {/* Map and Office Details */}
-      <div className="grid md:grid-cols-2 gap-8 items-center">
+       <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
           <img 
             src={activeOffice.image}
@@ -95,30 +95,30 @@ const GlobalPresence = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <h3 className="text-2xl font-bold mb-2">{activeOffice.city}</h3>
-            <p className="text-gray-200">{activeOffice.address}</p>
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+            <h3 className="text-2xl font-bold mb-2 text-white">{activeOffice.city}</h3>
+            <p className="text-white">{activeOffice.address}</p>
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-lg shadow-md">
+        <div className="bg-gray-800 p-8 rounded-lg shadow-md">
           <div className="flex items-center mb-6">
-            <MapPin size={24} className="text-blue-600 mr-2" />
-            <h3 className="text-2xl font-bold text-gray-900">
+            <MapPin size={24} className="text-blue-400 mr-2" />
+            <h3 className="text-2xl font-bold text-white">
               {activeOffice.name} Office
             </h3>
           </div>
 
           <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Address</h4>
-              <p className="text-gray-600">{activeOffice.address}</p>
+              <h4 className="font-semibold text-white mb-2">Address</h4>
+              <p className="text-gray-300">{activeOffice.address}</p>
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Contact</h4>
-              <p className="text-gray-600">Phone: +1 (234) 567-890</p>
-              <p className="text-gray-600">Email: info@trinitytechsolutions.com</p>
+              <h4 className="font-semibold text-white mb-2">Contact</h4>
+              <p className="text-gray-300">Phone: +1 (234) 567-890</p>
+              <p className="text-gray-300">Email: info@trinitytechsolutions.com</p>
             </div>
 
             <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
@@ -136,7 +136,7 @@ const GlobalPresence = () => {
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
               activeLocation === location.id
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
             }`}
             onClick={() => setActiveLocation(location.id)}
           >

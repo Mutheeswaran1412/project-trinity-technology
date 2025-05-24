@@ -74,3 +74,14 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Logo carousel animation */
+@keyframes slideLogo {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.logo-track {
+  min-width: 200%;
+  will-change: transform;
+  animation: slideLogo 40s linear infinite; /* Decreased from 40s to 12s for a faster loop */
+}
