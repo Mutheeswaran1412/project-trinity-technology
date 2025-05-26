@@ -9,6 +9,11 @@ const TechStack = () => {
       description: 'Cloud computing services for scalable, enterprise-grade solutions'
     },
     {
+      name: 'AWS',
+      logo: 'https://assets-web-varjo.s3.eu-north-1.amazonaws.com/wp-content/uploads/2019/12/aws-logo.png',
+      description: 'Comprehensive cloud platform offering compute, storage, and AI services'
+    },
+    {
       name: 'Databricks',
       logo: 'https://www.databricks.com/wp-content/uploads/2021/10/db-nav-logo.svg',
       description: 'Unified data analytics platform for big data and AI'
@@ -32,25 +37,24 @@ const TechStack = () => {
       subtitle="Cutting-edge technologies powering our data solutions"
       dark
     >
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {technologies.map((tech, index) => (
-          <div 
-            key={index} 
-            className="bg-gray-800 rounded-lg p-6 text-center transition-transform hover:-translate-y-2 duration-300"
-          >
-            <div className="h-16 flex items-center justify-center mb-4">
-              <img 
-                src={tech.logo} 
-                alt={`${tech.name} logo`} 
-                className="h-full object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">{tech.name}</h3>
-            <p className="text-gray-400">{tech.description}</p>
-          </div>
-        ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+  {technologies.map((tech, index) => (
+    <div 
+      key={index} 
+      className="bg-gray-800 rounded-lg p-6 text-center transition-transform hover:-translate-y-2 duration-300"
+    >
+      <div className="h-10 flex items-center justify-center mb-4">
+        <img 
+          src={tech.logo} 
+          alt={`${tech.name} logo`} 
+          className="h-10 w-16 object-contain"
+        />
       </div>
-
+      <h3 className="text-xl font-bold text-white mb-2">{tech.name}</h3>
+      <p className="text-gray-400">{tech.description}</p>
+    </div>
+  ))}
+</div>
       <div className="mt-16 text-center">
         <h3 className="text-2xl font-bold text-white mb-6">Proud Databricks Partner</h3>
         <div className="bg-gray-800 p-8 rounded-lg max-w-3xl mx-auto">
