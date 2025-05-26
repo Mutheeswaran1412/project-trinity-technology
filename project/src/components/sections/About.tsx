@@ -14,18 +14,18 @@ const About = () => {
     <Section 
       id="about" 
       title={
-        <span className="flex flex-col items-center text-white">
+        <span className="flex flex-col items-center text-black">
           <img
             src="https://trinitetech.com/wp-content/uploads/2024/02/Trinity-Logo-1.svg"
             alt="Trinity Logo"
             className="h-14 mb-2"
-            style={{ maxWidth: 120 }}
+            style={{ maxWidth: 120, filter: 'brightness(0) saturate(100%)' }} // Black logo
           />
-          About Trinity Technology Solution
+          <span className="text-[#22396b]">About Trinity Technology Solution</span>
         </span>
       }
-      subtitle={<span className="text-white">Your Trusted Partner in Digital Transformation</span>}
-      className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white"
+      subtitle={<span className="text-gray-700">Your Trusted Partner in Digital Transformation</span>}
+      className="bg-white text-black"
     >
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
@@ -47,13 +47,13 @@ const About = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-[#0D1321] p-6 rounded-lg shadow-md border border-gray-800 text-center text-white"
+              className="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 text-center text-black transition-colors duration-200 hover:border-black"
             >
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-full mb-4">
                 {stat.icon}
               </div>
               <div className="text-3xl font-bold mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-300">{stat.label}</div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
             </div>
           ))}
         </div>

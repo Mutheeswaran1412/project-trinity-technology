@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, Search, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../ui/Logo';
 
 const Header = () => {
@@ -20,6 +20,7 @@ const Header = () => {
     { name: 'Industries', href: '#industries', hasDropdown: true },
     { name: 'Insights', href: '#insights', hasDropdown: true },
     { name: 'Careers', href: '#careers', hasDropdown: true },
+    { name: 'Contact Us', href: '#contact', hasDropdown: false },
   ];
 
   return (
@@ -29,12 +30,22 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        {/* Left: Logo + Nav */}
-        <div className="flex items-center space-x-8">
+        {/* Left: Logo */}
+        <a href="/" className="flex items-center">
           <Logo className="h-8 w-auto" />
-          <div className="border-l h-8 border-gray-300 mx-4" />
-          <nav className="hidden md:flex space-x-6">
-            {navLinks.map((link) => (
+        </a>
+        {/* Right: Nav */}
+        <nav className="hidden md:flex items-center space-x-8 ml-auto">
+          {navLinks.map((link) =>
+            link.name === 'Contact Us' ? (
+              <a
+                key={link.name}
+                href={link.href}
+                className="font-semibold bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors ml-2"
+              >
+                {link.name}
+              </a>
+            ) : (
               <div
                 key={link.name}
                 className="relative group"
@@ -43,12 +54,18 @@ const Header = () => {
               >
                 <a
                   href={link.href}
-                  className="flex items-center text-gray-700 font-semibold hover:text-green-700 transition-colors"
+                  className={`flex items-center font-semibold text-black transition-colors relative group-hover:text-blue-600
+                    ${openDropdown === link.name ? 'text-blue-600' : ''}
+                  `}
                 >
                   {link.name}
                   {link.hasDropdown && (
                     <ChevronDown size={16} className="ml-1" />
                   )}
+                  <span
+                    className="block h-0.5 bg-blue-600 absolute left-0 right-0 bottom-[-6px] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                    style={{ transformOrigin: 'left', transition: 'transform 0.3s' }}
+                  />
                 </a>
                 {/* Dropdown menu placeholder */}
                 {link.hasDropdown && openDropdown === link.name && (
@@ -58,35 +75,13 @@ const Header = () => {
                   </div>
                 )}
               </div>
-            ))}
-          </nav>
-        </div>
-
-
-        {/* Right: Actions */}
-        <div className="flex items-center space-x-2">
-          <button className="p-2 rounded-full hover:bg-gray-100">
-            <Search size={20} className="text-gray-500" />
-          </button>
-<button className="border-2 border-[#3d3dff] text-[#3d3dff] hover:bg-[#3d3dff] hover:text-white font-bold py-2 px-6 rounded-full bg-white">
-  Take a Tour
-</button>
-<button className="bg-[#3d3dff] hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">
-  Contact Us
-</button>
-          <button className="p-2 rounded-full hover:bg-gray-100 ml-2">
-            <Globe size={20} className="text-gray-500" />
-          </button>
-          <div className="hidden lg:flex items-center space-x-4 ml-4 text-xs text-gray-400 font-semibold tracking-wide">
-            <span>SUPPORT</span>
-            <span>COMPANY</span>
-            <span>LOGIN</span>
-          </div>
-          {/* Mobile menu button */}
-          <button className="md:hidden ml-2" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} className="text-green-700" /> : <Menu size={24} className="text-green-700" />}
-          </button>
-        </div>
+            )
+          )}
+        </nav>
+        {/* Mobile menu button */}
+        <button className="md:hidden ml-2" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={24} className="text-blue-600" /> : <Menu size={24} className="text-blue-600" />}
+        </button>
       </div>
 
       {/* Mobile Navigation Menu */}
@@ -94,22 +89,27 @@ const Header = () => {
         <div className="md:hidden bg-white shadow-lg">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-green-700 font-semibold hover:text-green-800 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
-              <button className="border border-green-600 text-green-700 font-semibold rounded-full px-5 py-2 mt-2">
-                Take a Tour
-              </button>
-              <button className="bg-green-600 text-white font-semibold rounded-full px-5 py-2 mt-2">
-                Contact Us
-              </button>
+              {navLinks.map((link) =>
+                link.name === 'Contact Us' ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="font-semibold bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="font-semibold text-black hover:text-blue-600 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
             </nav>
           </div>
         </div>

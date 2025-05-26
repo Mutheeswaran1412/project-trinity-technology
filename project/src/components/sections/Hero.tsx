@@ -68,8 +68,7 @@ const Hero: React.FC = () => {
                         <Button
                             variant="primary"
                             size="lg"
-                            className="bg-[#22396b] hover:bg-[#3d3dff] text-lg px-8 font-bold rounded-full"
-                            style={{ color: '#fff', width: '250px', height: '56px' }}
+                            className="bg-[#22396b] hover:bg-[#3d3dff] text-lg px-8 font-bold rounded-full text-white w-[250px] h-[56px]"
                         >
                             See What's Different
                         </Button>

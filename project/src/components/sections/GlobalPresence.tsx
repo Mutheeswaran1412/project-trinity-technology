@@ -49,9 +49,9 @@ const GlobalPresence = () => {
   return (
     <Section 
       id="global-presence" 
-      title={<span className="text-white">Our Global Presence</span>} // Changed title color to white
-      subtitle={<span className="text-white">Delivering excellence across continents with local expertise and global insights</span>} // Changed subtitle color to white
-      className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white"
+      title={<span className="text-black">Our Global Presence</span>}
+      subtitle={<span className="text-black">Delivering excellence across continents with local expertise and global insights</span>}
+      className="bg-white text-black"
     >
       {/* Timeline */}
       <div className="relative mb-16">
@@ -75,9 +75,9 @@ const GlobalPresence = () => {
               >
                 <div className="w-3 h-3 rounded-full bg-white" />
               </div>
-              <div className="text-xl font-bold text-white">{location.year}</div>
-              <div className="mt-2 font-medium text-white">{location.city}</div>
-              <div className="text-sm text-gray-300">{location.name}</div>
+              <div className="text-xl font-bold text-black">{location.year}</div>
+              <div className="mt-2 font-medium text-black">{location.city}</div>
+              <div className="text-sm text-gray-700">{location.name}</div>
               {index < locations.length - 1 && (
                 <div className="absolute top-3 left-[50%] w-full h-[2px] bg-blue-200" />
               )}
@@ -87,7 +87,7 @@ const GlobalPresence = () => {
       </div>
 
       {/* Map and Office Details */}
-       <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
           <img 
             src={activeOffice.image}
@@ -101,24 +101,24 @@ const GlobalPresence = () => {
           </div>
         </div>
 
-        <div className="bg-gray-800 p-8 rounded-lg shadow-md">
+        <div className="bg-gray-100 p-8 rounded-lg shadow-md">
           <div className="flex items-center mb-6">
-            <MapPin size={24} className="text-blue-400 mr-2" />
-            <h3 className="text-2xl font-bold text-white">
+            <MapPin size={24} className="text-blue-600 mr-2" />
+            <h3 className="text-2xl font-bold text-black">
               {activeOffice.name} Office
             </h3>
           </div>
 
           <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-white mb-2">Address</h4>
-              <p className="text-gray-300">{activeOffice.address}</p>
+              <h4 className="font-semibold text-black mb-2">Address</h4>
+              <p className="text-gray-700">{activeOffice.address}</p>
             </div>
 
             <div>
-              <h4 className="font-semibold text-white mb-2">Contact</h4>
-              <p className="text-gray-300">Phone: +1 (234) 567-890</p>
-              <p className="text-gray-300">Email: info@trinitytechsolutions.com</p>
+              <h4 className="font-semibold text-black mb-2">Contact</h4>
+              <p className="text-gray-700">Phone: +1 (234) 567-890</p>
+              <p className="text-gray-700">Email: info@trinitytechsolutions.com</p>
             </div>
 
             <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
@@ -136,7 +136,7 @@ const GlobalPresence = () => {
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
               activeLocation === location.id
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                : 'bg-gray-200 text-black hover:bg-gray-300'
             }`}
             onClick={() => setActiveLocation(location.id)}
           >

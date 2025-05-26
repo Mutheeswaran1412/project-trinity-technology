@@ -2,8 +2,8 @@ import React from 'react';
 
 interface SectionProps {
   id: string;
-  title: string;
-  subtitle?: string;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
   dark?: boolean;
