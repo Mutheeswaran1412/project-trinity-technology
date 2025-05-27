@@ -33,13 +33,13 @@ const Hero: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-10 md:gap-x-12 items-center">
                     {/* Left Side (Text) */}
                     <motion.div
-                        initial={{ opacity: 0, x: -60 }}
-                        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="max-w-2xl mx-auto lg:mx-0 flex flex-col"
-                    >
+                       initial={{ opacity: 0, x: -60 }}
+    animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    className="max-w-2xl mx-auto lg:mx-0 flex flex-col mt-8" // <-- Added mt-8 here
+>
                         {/* Databricks Badge - slightly moved up with negative margin */}
-     <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-3 sm:mb-4 md:mb-5 -mt-14 shadow-md border border-blue-900/40 backdrop-blur-sm">
+<div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-2 sm:mb-3 md:mb-4 -mt-14 shadow-md border border-blue-900/40 backdrop-blur-sm">
     <img
         src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
         alt="Databricks"
@@ -55,42 +55,43 @@ const Hero: React.FC = () => {
         <ArrowUpRight className="w-4 h-4 ml-1" />
     </a>
 </div>
-                        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-[#22396b]">
-                            Empowering Data-<span style={{ color: '#3d3dff' }}>Driven Decisions Across the Globe</span>
-                        </h1>
-                        <p
-                            className="text-lg mb-8 text-[#22396b]"
-                            style={{ fontFamily: 'Roboto, sans-serif' }}
-                        >
-                            Harnessing the power of data analytics to transform businesses in Oman, Netherlands, USA, and India.
-                        </p>
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            className="bg-[#22396b] hover:bg-[#3d3dff] text-base px-8 font-bold rounded-full text-white w-[250px] h-[56px]"
-                        >
-                            See What's Different
-                        </Button>
+<h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 text-[#22396b]">
+    Empowering Data-<br />
+    <span style={{ color: '#3d3dff' }}>Driven Decisions<br />Across the Globe</span>
+</h1>
+<p
+    className="text-base mb-4 text-[#22396b]"
+    style={{ fontFamily: 'Roboto, sans-serif' }}
+>
+    Harnessing the power of data analytics to transform businesses in Oman, Netherlands, USA, and India.
+</p>
+<Button
+    variant="primary"
+    size="lg"
+    className="bg-[#22396b] hover:bg-[#3d3dff] text-base px-8 font-bold rounded-full text-white w-[250px] h-[56px]"
+>
+    See What's Different
+</Button>
                     </motion.div>
 
                     {/* Right Side Lottie */}
-                    <motion.div
+   <motion.div
     initial={{ opacity: 0, x: 60 }}
     animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
     transition={{ duration: 1.2, ease: "easeOut", type: "spring", stiffness: 60 }}
-    className="flex justify-center items-center w-full h-full -mt-24"
+    className="flex justify-center items-center w-full h-full -mt-12"
 >
     <DotLottieReact
         src="https://lottie.host/a8037778-cf68-423b-8a82-d665927f90fa/oNfJ6iHKf9.lottie"
         loop
         autoplay
-        style={{ width: '100%', maxWidth: 560, height: 560 }}
+        style={{ width: '100%', maxWidth: 480, height: 480 }}
     />
 </motion.div>
                 </div>
 
-       {/* Footer section - moved further up */}
-<div className="mt-2 md:mt-4 -mb-4">
+                {/* Footer section - slightly moved up */}
+<div className="mt-4 md:mt-8 -mb-2">
     <div className="text-center mb-4 md:mb-8">
         <p className="text-black font-bold text-sm sm:text-base md:text-lg">
             Trusted by industry leaders in data and analytics
@@ -98,8 +99,8 @@ const Hero: React.FC = () => {
     </div>
 </div>
 
-{/* Moving Logo Carousel - moved further up */}
-<section className="logo-carousel overflow-hidden relative pt-2 md:pt-4 pb-4 md:pb-8 mt-0 -mb-6">
+{/* Moving Logo Carousel - slightly moved up */}
+<section className="logo-carousel overflow-hidden relative pt-2 md:pt-4 pb-4 md:pb-8 mt-0 -mb-4">
     <div className="w-full">
         <div className="logo-track flex items-center gap-6 md:gap-16 w-max">
             {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
