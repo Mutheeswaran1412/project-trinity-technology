@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-2xl mx-auto lg:mx-0 flex flex-col"
                     >
-                  <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-2 sm:mb-3 md:mb-4 -mt-6 shadow-md border border-blue-900/40 backdrop-blur-sm">
+                 <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-2 sm:mb-3 md:mb-4 mt-4 shadow-md border border-blue-900/40 backdrop-blur-sm">
     <img
         src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
         alt="Databricks"
