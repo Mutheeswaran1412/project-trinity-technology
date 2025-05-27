@@ -39,22 +39,22 @@ const Hero: React.FC = () => {
                         className="max-w-2xl mx-auto lg:mx-0 flex flex-col"
                     >
                         {/* Databricks Badge - slightly moved up with negative margin */}
-                        <div className="flex items-center gap-2 sm:gap-3 bg-white rounded-full px-4 sm:px-6 md:px-8 py-2 w-fit mb-4 sm:mb-6 md:mb-8 -mt-12 shadow-md border border-blue-900/40 backdrop-blur-sm">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
-                                alt="Databricks"
-                                className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
-                            />
-                            <a
-                                href="https://www.databricks.com/partners"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-1 text-[#22396b] font-bold text-base sm:text-lg md:text-xl tracking-wide hover:underline"
-                            >
-                                Trinity-databricks consulting partner
-                                <ArrowUpRight className="w-5 h-5 ml-1" />
-                            </a>
-                        </div>
+                       <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-3 sm:mb-4 md:mb-5 -mt-6 shadow-md border border-blue-900/40 backdrop-blur-sm">
+    <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
+        alt="Databricks"
+        className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 object-contain"
+    />
+    <a
+        href="https://www.databricks.com/partners"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-[#22396b] font-bold text-xs sm:text-sm md:text-base tracking-wide hover:underline"
+    >
+        Trinity-databricks consulting partner
+        <ArrowUpRight className="w-4 h-4 ml-1" />
+    </a>
+</div>
                         <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-[#22396b]">
                             Empowering Data-<span style={{ color: '#3d3dff' }}>Driven Decisions Across the Globe</span>
                         </h1>
@@ -88,15 +88,14 @@ const Hero: React.FC = () => {
                         />
                     </motion.div>
                 </div>
-
-                {/* Footer section */}
-                <div className="mt-8 md:mt-12 -mb-2">
-                    <div className="text-center mb-4 md:mb-8">
-                        <p className="text-black font-bold text-sm sm:text-base md:text-lg">
-                            Trusted by industry leaders in data and analytics
-                        </p>
-                    </div>
-                </div>
+{/* Footer section - slightly more down */}
+<div className="mt-14 md:mt-20 -mb-2">
+    <div className="text-center mb-4 md:mb-8">
+        <p className="text-black font-bold text-sm sm:text-base md:text-lg">
+            Trusted by industry leaders in data and analytics
+        </p>
+    </div>
+</div>
 
                 {/* Moving Logo Carousel */}
                 <section className="logo-carousel overflow-hidden relative pt-2 md:pt-4 pb-4 md:pb-8 mt-0">
