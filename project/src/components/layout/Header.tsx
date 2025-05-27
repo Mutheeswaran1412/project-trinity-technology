@@ -24,11 +24,12 @@ const Header = () => {
   ];
 
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-white py-4'
-      }`}
-    >
+   <header
+  className={`fixed w-full z-50 transition-all duration-300 ${
+    isScrolled ? 'bg-white shadow-md py-5' : 'bg-white py-7'
+  }`}
+>
+    
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Left: Logo */}
         <a href="/" className="flex items-center">
