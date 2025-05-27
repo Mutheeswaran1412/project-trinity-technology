@@ -38,8 +38,7 @@ const Hero: React.FC = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-2xl mx-auto lg:mx-0 flex flex-col"
                     >
-                        {/* Databricks Badge - slightly moved up with negative margin */}
-                       <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-3 sm:mb-4 md:mb-5 -mt-6 shadow-md border border-blue-900/40 backdrop-blur-sm">
+                  <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-2 sm:mb-3 md:mb-4 -mt-6 shadow-md border border-blue-900/40 backdrop-blur-sm">
     <img
         src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
         alt="Databricks"
@@ -55,22 +54,22 @@ const Hero: React.FC = () => {
         <ArrowUpRight className="w-4 h-4 ml-1" />
     </a>
 </div>
-                        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-[#22396b]">
-                            Empowering Data-<span style={{ color: '#3d3dff' }}>Driven Decisions Across the Globe</span>
-                        </h1>
-                        <p
-                            className="text-lg mb-8 text-[#22396b]"
-                            style={{ fontFamily: 'Roboto, sans-serif' }}
-                        >
-                            Harnessing the power of data analytics to transform businesses in Oman, Netherlands, USA, and India.
-                        </p>
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            className="bg-[#22396b] hover:bg-[#3d3dff] text-base px-8 font-bold rounded-full text-white w-[250px] h-[56px]"
-                        >
-                            See What's Different
-                        </Button>
+<h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 text-[#22396b]">
+    Empowering Data-<span style={{ color: '#3d3dff' }}>Driven Decisions Across the Globe</span>
+</h1>
+<p
+    className="text-lg mb-4 text-[#22396b]"
+    style={{ fontFamily: 'Roboto, sans-serif' }}
+>
+    Harnessing the power of data analytics to transform businesses in Oman, Netherlands, USA, and India.
+</p>
+<Button
+    variant="primary"
+    size="lg"
+    className="bg-[#22396b] hover:bg-[#3d3dff] text-base px-8 font-bold rounded-full text-white w-[250px] h-[56px]"
+>
+    See What's Different
+</Button>
                     </motion.div>
 
                     {/* Right Side Lottie */}
