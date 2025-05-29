@@ -14,9 +14,17 @@ const Footer = () => {
               Empowering data-driven decisions across the globe with innovative analytics solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin size={20} />
-              </a>
+              <div className="flex space-x-4">
+  <a 
+    href="https://www.linkedin.com/company/trinity-technology-solutions"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-400 hover:text-white transition-colors"
+  >
+    <Linkedin size={20} />
+  </a>  
+</div>
+
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter size={20} />
               </a>
