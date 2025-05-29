@@ -33,6 +33,11 @@ const TechStack = () => {
       name: 'AWS',
       logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
       description: 'Comprehensive cloud platform offering computing power, storage, and content delivery.'
+    },
+    {
+     name:'Odoo',
+     logo:'https://cdn4.iconfinder.com/data/icons/logos-3/640/odoo_logo_rgb-512.png',
+     description:'Open-source business management software that integrates various applications like ERP, CRM, accounting, e-commerce, inventory, and project management into a single platform'
     }
   ];
 
