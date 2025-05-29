@@ -9,37 +9,72 @@ const Industries = () => {
     {
       id: 'healthcare',
       name: 'Healthcare',
-      image: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg',
       description: 'Helping healthcare providers improve patient outcomes through data-driven insights and predictive analytics.',
       caseStudy: 'Reduced hospital readmission rates by 25% through predictive analytics and patient risk profiling.'
     },
     {
       id: 'finance',
       name: 'Finance',
-      image: 'https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg',
       description: 'Enabling financial institutions to make informed decisions, detect fraud, and enhance customer experiences.',
       caseStudy: 'Implemented real-time fraud detection system that reduced fraudulent transactions by 60% for a leading banking institution.'
     },
     {
       id: 'retail',
       name: 'Retail',
-      image: 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg',
       description: 'Optimizing inventory management, personalizing customer experiences, and forecasting trends for retailers.',
       caseStudy: 'Developed demand forecasting model that improved inventory efficiency by 30% and reduced stockouts by 45%.'
     },
     {
       id: 'manufacturing',
       name: 'Manufacturing',
-      image: 'https://images.pexels.com/photos/3846508/pexels-photo-3846508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.pexels.com/photos/3846508/pexels-photo-3846508.jpeg',
       description: 'Enhancing operational efficiency, quality control, and predictive maintenance in manufacturing processes.',
       caseStudy: 'Implemented IoT analytics platform resulting in 40% reduction in equipment downtime and 15% increase in production efficiency.'
     },
     {
       id: 'telecom',
       name: 'Telecommunications',
-      image: 'https://images.pexels.com/photos/2538122/pexels-photo-2538122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.pexels.com/photos/2538122/pexels-photo-2538122.jpeg',
       description: 'Optimizing network performance, customer segmentation, and service quality for telecom providers.',
       caseStudy: 'Reduced customer churn by 18% through predictive analytics and personalized retention strategies.'
+    },
+    {
+      id: 'it',
+      name: 'Information Technology',
+      image: 'https://images.pexels.com/photos/3861974/pexels-photo-3861974.jpeg',
+      description: 'Providing innovative solutions for software development, cybersecurity, and IT infrastructure management.',
+      caseStudy: 'Implemented AI-driven automation reducing IT support ticket volume by 50%.'
+    },
+    {
+      id: 'bfsi',
+      name: 'BFSI',
+      image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg',
+      description: 'Supporting banking, financial services, and insurance firms with advanced risk management and analytics.',
+      caseStudy: 'Enhanced customer experience through personalized AI-driven financial recommendations.'
+    },
+    {
+      id: 'engineering',
+      name: 'Engineering',
+      image: 'https://images.pexels.com/photos/1769344/pexels-photo-1769344.jpeg',
+      description: 'Driving innovation and efficiency in engineering sectors through smart design and data-driven processes.',
+      caseStudy: 'Developed AI-powered design tools reducing prototyping time by 30%.'
+    },
+    {
+      id: 'renewable',
+      name: 'Renewable Energy',
+      image: 'https://images.pexels.com/photos/421927/pexels-photo-421927.jpeg',
+      description: 'Leveraging data-driven insights to optimize sustainable energy solutions and reduce carbon footprints.',
+      caseStudy: 'Developed predictive maintenance models reducing wind turbine downtime by 35%.'
+    },
+    {
+      id: 'oilgas',
+      name: 'Oil & Gas',
+      image: 'https://images.pexels.com/photos/3855961/pexels-photo-3855961.jpeg',
+      description: 'Enhancing operational efficiency, risk management, and safety in oil and gas industries.',
+      caseStudy: 'Implemented IoT-driven safety monitoring reducing hazardous incidents by 40%.'
     }
   ];
 
@@ -85,36 +120,6 @@ const Industries = () => {
             <h4 className="font-semibold text-gray-800 mb-2">Success Story</h4>
             <p className="text-gray-700">{activeIndustry.caseStudy}</p>
           </div>
-          
-          <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center">
-            Read Full Case Study
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Other Industries */}
-      <div className="mt-16">
-        <h3 className="text-2xl font-bold text-center mb-8">More Industries We Serve</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          {industries
-            .filter(industry => industry.id !== activeTab)
-            .slice(0, 3)
-            .map((industry, index) => (
-              <Card key={index} hover>
-                <CardImage 
-                  src={industry.image} 
-                  alt={industry.name} 
-                  className="h-48"
-                />
-                <CardContent>
-                  <CardTitle>{industry.name}</CardTitle>
-                  <CardDescription className="line-clamp-3">{industry.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
         </div>
       </div>
     </Section>
