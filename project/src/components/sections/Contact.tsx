@@ -125,7 +125,7 @@ const Contact = () => {
             <h4 className="text-lg font-semibold text-gray-900 mb-1">Email Us</h4>
             <p className="text-gray-600 mb-1">General Inquiries</p>
             <a href="mailto:info@trinitytechsolutions.com" className="text-blue-600 hover:text-blue-700">
-          info@trinitytechsolutions.com
+          hello@trinitetech.com
             </a>
             <p className="text-gray-600 mt-2 mb-1">Business Development</p>
             <a href="mailto:sales@trinitytechsolutions.com" className="text-blue-600 hover:text-blue-700">
