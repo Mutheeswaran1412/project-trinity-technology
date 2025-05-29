@@ -7,9 +7,10 @@ import { motion, useInView } from "framer-motion";
 const partnerLogos = [
     'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
     'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmJtv2KX5wBcTHbVpmP2gSdySVtSbpG3pHaHn9Jyz022CCboo4O9mQWz1Eq6h_sPTqo1A&usqp=CAU',
+    'https://www.levelequity.com/wp-content/uploads/level-investment-fivetran-logo.png',
     'https://www.getdbt.com/_next/image?url=%2Fimg%2Flogos%2Fdbt-labs-logo.svg&w=256&q=75',
     'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+    'https://odoocdn.com/openerp_website/static/src/img/assets/png/odoo_logo.png'
 ];
 
 const Hero: React.FC = () => {
