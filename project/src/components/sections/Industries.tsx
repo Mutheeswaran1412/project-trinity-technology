@@ -37,14 +37,14 @@ const Industries = () => {
     {
       id: 'telecom',
       name: 'Telecommunications',
-      image: 'https://images.pexels.com/photos/2538122/pexels-photo-2538122.jpeg',
+      image: 'https://t4.ftcdn.net/jpg/04/35/60/39/360_F_435603999_qcRMI77UVgIk64kpL4y1cF6AtKZvX5PE.jpg',
       description: 'Optimizing network performance, customer segmentation, and service quality for telecom providers.',
       caseStudy: 'Reduced customer churn by 18% through predictive analytics and personalized retention strategies.'
     },
     {
       id: 'it',
       name: 'Information Technology',
-      image: 'https://images.pexels.com/photos/3861974/pexels-photo-3861974.jpeg',
+      image: 'https://media.istockphoto.com/id/1459941554/photo/global-communication-network-concept-digital-transformation.jpg?s=612x612&w=0&k=20&c=fpFsGOcELrE0_CjLCVud4A7kgrZJLSdFFmzNNCUGo7c=',
       description: 'Providing innovative solutions for software development, cybersecurity, and IT infrastructure management.',
       caseStudy: 'Implemented AI-driven automation reducing IT support ticket volume by 50%.'
     },
@@ -58,14 +58,14 @@ const Industries = () => {
     {
       id: 'engineering',
       name: 'Engineering',
-      image: 'https://images.pexels.com/photos/1769344/pexels-photo-1769344.jpeg',
+      image: 'https://img.freepik.com/premium-photo/car-engine-part-close-up-image-internal-combustion-engine_488220-4759.jpg?semt=ais_hybrid&w=740',
       description: 'Driving innovation and efficiency in engineering sectors through smart design and data-driven processes.',
       caseStudy: 'Developed AI-powered design tools reducing prototyping time by 30%.'
     },
     {
       id: 'renewable',
       name: 'Renewable Energy',
-      image: 'https://images.pexels.com/photos/421927/pexels-photo-421927.jpeg',
+      image: 'https://archosengineering.com/wp-content/uploads/2024/02/Screenshot2024-02-02165336-1170x740.jpg',
       description: 'Leveraging data-driven insights to optimize sustainable energy solutions and reduce carbon footprints.',
       caseStudy: 'Developed predictive maintenance models reducing wind turbine downtime by 35%.'
     },
