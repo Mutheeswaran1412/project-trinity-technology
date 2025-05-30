@@ -1,120 +1,110 @@
-import React, { useState } from 'react';
-import Section from '../ui/Section';
-import Button from '../ui/Button';
-import { Briefcase, Clock, MapPin } from 'lucide-react';
+import React, { useState, useRef } from "react";
+import Section from "../ui/Section";
+import Button from "../ui/Button";
+import { Briefcase, X } from "lucide-react";
 
 const Careers = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // ✅ Controls the UI pop-up
+  const [file, setFile] = useState<File | null>(null);
+  const [uploadStatus, setUploadStatus] = useState<string | null>(null); // ✅ Tracks upload result
 
-  const jobOpenings = [
-    {
-      title: 'Senior Data Engineer',
-      location: 'Amsterdam, Netherlands',
-      type: 'Full-time',
-      description: 'Design and implement data processing systems and data pipelines for our enterprise clients.'
-    },
-    {
-      title: 'Data Scientist',
-      location: 'New York, USA',
-      type: 'Full-time',
-      description: 'Develop machine learning models and conduct advanced analytics to solve complex business problems.'
-    },
-    {
-      title: 'Business Intelligence Analyst',
-      location: 'Chennai, India',
-      type: 'Full-time',
-      description: 'Create and maintain dashboards, reports, and data visualizations to drive business decisions.'
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files?.length) {
+      setFile(event.target.files[0]);
+      setIsModalOpen(false); // ✅ Close UI after selecting file
+
+      // ✅ Prepare for backend submission (replace with API call)
+      const formData = new FormData();
+      formData.append("resume", event.target.files[0]);
+
+      try {
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          setUploadStatus("Resume uploaded successfully ✅");
+        } else {
+          setUploadStatus("Upload failed ❌");
+        }
+      } catch (error) {
+        console.error("Error uploading resume:", error);
+        setUploadStatus("Upload error ❌");
+      }
     }
-  ];
+  };
 
-  const benefits = [
-    'Competitive salary and performance bonuses',
-    'Comprehensive health and dental insurance',
-    'Flexible work arrangements and remote options',
-    'Professional development and certification support',
-    'Regular team events and retreats',
-    'Collaborative and innovative work environment'
-  ];
+  const handleUploadClick = () => {
+    setIsModalOpen(true); // ✅ Open UI first
+  };
 
   return (
-    <Section 
-      id="careers" 
+    <Section
+      id="careers"
       title="Join Our Team"
       subtitle="Build your career at the forefront of data innovation"
-      className="bg-white text-black"
+      className="bg-white text-black text-center"
     >
-      <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-        <div>
-          <h3 className="text-2xl font-bold text-black mb-4">Why Work With Us?</h3>
-          <p className="text-gray-700 mb-6">
-            At Trinity Technology Solution, we're building a team of passionate data professionals who are driven to solve complex challenges and make a meaningful impact. Our collaborative culture encourages innovation, continuous learning, and professional growth.
-          </p>
-          <p className="text-gray-700 mb-6">
-            As a global company with offices in four countries, we offer diverse perspectives and opportunities to work on cutting-edge projects across various industries and technologies.
-          </p>
-          
-          <h4 className="text-xl font-semibold text-black mt-8 mb-4">Benefits & Perks</h4>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
-            {benefits.map((benefit, index) => (
-              <li key={index} className="flex items-start text-gray-700">
-                <span className="text-blue-600 mr-2">✓</span>
-                {benefit}
-              </li>
-            ))}
-          </ul>
-        </div>
-        
-        <div className="rounded-lg overflow-hidden">
-          <img 
-            src="https://images.pexels.com/photos/3184302/pexels-photo-3184302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-            alt="Team working together" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
+      <p className="text-gray-700 mb-6">
+        Don't see a position that matches your skills? We're always looking for talented individuals to join our team.
+      </p>
 
-      <h3 className="text-2xl font-bold text-black text-center mb-8">Current Openings</h3>
-      <div className="grid md:grid-cols-3 gap-6 mb-8">
-        {jobOpenings.map((job, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-black transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
-          >
-            <h4 className="text-xl font-bold text-black mb-3">{job.title}</h4>
-            <div className="flex items-center text-gray-600 mb-2">
-              <MapPin size={16} className="mr-1" />
-              <span>{job.location}</span>
-            </div>
-            <div className="flex items-center text-gray-600 mb-4">
-              <Clock size={16} className="mr-1" />
-              <span>{job.type}</span>
-            </div>
-            <p className="text-gray-700 mb-6">{job.description}</p>
+      {/* ✅ Upload Resume Button */}
+      <Button
+        variant="primary"
+        className="bg-blue-600 hover:bg-blue-700 text-white"
+        onClick={handleUploadClick} // ✅ Opens UI instead of file picker
+      >
+        <Briefcase size={16} className="mr-2" />
+        Upload Resume
+      </Button>
+
+      {/* ✅ Custom Pop-up UI */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50">
+          <div className="relative max-w-lg mx-auto p-8 bg-white rounded-md shadow-lg text-center">
+           <button
+  className="absolute top-2 right-2 text-gray-500 hover:text-black"
+  onClick={() => setIsModalOpen(false)}
+  title="Close Upload Window" // ✅ Tooltip when hovered
+  aria-label="Close Upload Window" // ✅ Helps screen readers understand
+>
+  <X size={20} />
+</button>
+
+
+            <h2 className="text-2xl font-bold mb-4">Upload Your Resume</h2>
+            <p className="text-gray-600 mb-4">Select a file from your computer</p>
+
+            {/* ✅ Choose File Button */}
             <Button
-              variant="outline"
-              className={`w-full border-gray-400 focus:outline-none ring-0 transition-colors duration-200 ${
-                activeIndex === index
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'text-black hover:bg-gray-100'
-              }`}
-              onClick={() => setActiveIndex(index)}
+              variant="secondary"
+              className="bg-gray-700 hover:bg-gray-800 text-white"
+              onClick={() => fileInputRef.current?.click()} // ✅ Opens file selection
             >
-              View Details
+              Choose File
             </Button>
-          </div>
-        ))}
-      </div>
 
-      <div className="text-center">
-        <p className="text-gray-700 mb-6">Don't see a position that matches your skills? We're always looking for talented individuals to join our team.</p>
-        <Button 
-          variant="primary" 
-          className="bg-blue-600 hover:bg-blue-700 text-white"
-        >
-          <Briefcase size={16} className="mr-2" />
-          Submit Your Resume
-        </Button>
-      </div>
+            {/* ✅ Hidden File Input */}
+        <input
+  type="file"
+  accept=".pdf,.doc,.docx"
+  ref={fileInputRef}
+  onChange={handleFileChange}
+  className="hidden"
+  aria-label="Upload your resume file" // ✅ Provides accessibility support
+  title="Select your resume file" // ✅ Helps tooltips show when hovered
+  placeholder="Choose file" // ✅ Improves accessibility for some UI frameworks
+/>
+
+          </div>
+        </div>
+      )}
+
+      {/* ✅ Upload Status Feedback */}
+      {uploadStatus && <p className="mt-4 text-lg font-semibold text-green-600">{uploadStatus}</p>}
     </Section>
   );
 };
