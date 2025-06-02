@@ -32,7 +32,8 @@ const Hero: React.FC = () => {
             <style dangerouslySetInnerHTML={{ __html: carouselStyle }} />
             
             {/* ✅ Local width set only for homepage */}
-            <div ref={ref} className="mx-auto px-4 max-w-[1100px]">
+            <div ref={ref} className="mx-auto px-4 max-w-[1200px]">
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-10 md:gap-x-12 items-center">
 
                     {/* Left Side (Text) */}
@@ -123,3 +124,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
