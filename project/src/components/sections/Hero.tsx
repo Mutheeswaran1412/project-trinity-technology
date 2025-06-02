@@ -30,8 +30,11 @@ const Hero: React.FC = () => {
     return (
         <div className="pt-16 sm:pt-20 md:pt-36 pb-8 md:pb-16 bg-white">
             <style dangerouslySetInnerHTML={{ __html: carouselStyle }} />
-            <div ref={ref} className="container mx-auto px-4">
+            
+            {/* ✅ Local width set only for homepage */}
+            <div ref={ref} className="mx-auto px-4 max-w-[1100px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-10 md:gap-x-12 items-center">
+
                     {/* Left Side (Text) */}
                     <motion.div
                         initial={{ opacity: 0, x: -60 }}
@@ -39,38 +42,38 @@ const Hero: React.FC = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-2xl mx-auto lg:mx-0 flex flex-col"
                     >
-                 <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-2 sm:mb-3 md:mb-4 mt-4 shadow-md border border-blue-900/40 backdrop-blur-sm">
-    <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
-        alt="Databricks"
-        className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 object-contain"
-    />
-    <a
-        href="https://www.databricks.com/partners"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-[#22396b] font-bold text-xs sm:text-sm md:text-base tracking-wide hover:underline"
-    >
-        Trinity-databricks consulting partner
-        <ArrowUpRight className="w-4 h-4 ml-1" />
-    </a>
-</div>
-<h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 text-[#22396b]">
-    Empowering Data-<span style={{ color: '#3d3dff' }}>Driven Decisions Across the Globe</span>
-</h1>
-<p
-    className="text-lg mb-4 text-[#22396b]"
-    style={{ fontFamily: 'Roboto, sans-serif' }}
->
-    Harnessing the power of data analytics to transform businesses in Oman, Netherlands, USA, and India.
-</p>
-<Button
-    variant="primary"
-    size="lg"
-    className="bg-[#22396b] hover:bg-[#3d3dff] text-base px-8 font-bold rounded-full text-white w-[250px] h-[56px]"
->
-    See What's Different
-</Button>
+                        <div className="flex items-center gap-1 sm:gap-2 bg-white rounded-full px-3 sm:px-4 md:px-5 py-1 w-fit mb-2 sm:mb-3 md:mb-4 mt-4 shadow-md border border-blue-900/40 backdrop-blur-sm">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
+                                alt="Databricks"
+                                className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 object-contain"
+                            />
+                            <a
+                                href="https://www.databricks.com/partners"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1 text-[#22396b] font-bold text-xs sm:text-sm md:text-base tracking-wide hover:underline"
+                            >
+                                Trinity-databricks consulting partner
+                                <ArrowUpRight className="w-4 h-4 ml-1" />
+                            </a>
+                        </div>
+
+                        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 text-[#22396b]">
+                            Empowering Data-<span style={{ color: '#3d3dff' }}>Driven Decisions Across the Globe</span>
+                        </h1>
+
+                        <p className="text-lg mb-4 text-[#22396b]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            Harnessing the power of data analytics to transform businesses in Oman, Netherlands, USA, and India.
+                        </p>
+
+                        <Button
+                            variant="primary"
+                            size="lg"
+                            className="bg-[#22396b] hover:bg-[#3d3dff] text-base px-8 font-bold rounded-full text-white w-[250px] h-[56px]"
+                        >
+                            See What's Different
+                        </Button>
                     </motion.div>
 
                     {/* Right Side Lottie */}
@@ -88,14 +91,15 @@ const Hero: React.FC = () => {
                         />
                     </motion.div>
                 </div>
-{/* Footer section - slightly more down */}
-<div className="mt-14 md:mt-20 -mb-2">
-    <div className="text-center mb-4 md:mb-8">
-        <p className="text-black font-bold text-sm sm:text-base md:text-lg">
-            Trusted by industry leaders in data and analytics
-        </p>
-    </div>
-</div>
+
+                {/* Footer section - slightly more down */}
+                <div className="mt-14 md:mt-20 -mb-2">
+                    <div className="text-center mb-4 md:mb-8">
+                        <p className="text-black font-bold text-sm sm:text-base md:text-lg">
+                            Trusted by industry leaders in data and analytics
+                        </p>
+                    </div>
+                </div>
 
                 {/* Moving Logo Carousel */}
                 <section className="logo-carousel overflow-hidden relative pt-2 md:pt-4 pb-4 md:pb-8 mt-0">
