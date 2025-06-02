@@ -30,12 +30,10 @@ const Hero: React.FC = () => {
     return (
         <div className="pt-16 sm:pt-20 md:pt-36 pb-8 md:pb-16 bg-white">
             <style dangerouslySetInnerHTML={{ __html: carouselStyle }} />
-            
-            {/* ✅ Local width set only for homepage */}
-            <div ref={ref} className="mx-auto px-4 max-w-[1150px]">
 
+            {/* ✅ Main Content Container */}
+            <div ref={ref} className="mx-auto px-4 max-w-[1100px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-10 md:gap-x-12 items-center">
-
                     {/* Left Side (Text) */}
                     <motion.div
                         initial={{ opacity: 0, x: -60 }}
@@ -93,7 +91,7 @@ const Hero: React.FC = () => {
                     </motion.div>
                 </div>
 
-                {/* Footer section - slightly more down */}
+                {/* Footer Section */}
                 <div className="mt-14 md:mt-20 -mb-2">
                     <div className="text-center mb-4 md:mb-8">
                         <p className="text-black font-bold text-sm sm:text-base md:text-lg">
@@ -101,27 +99,26 @@ const Hero: React.FC = () => {
                         </p>
                     </div>
                 </div>
-
-                {/* Moving Logo Carousel */}
-                <section className="logo-carousel overflow-hidden relative pt-2 md:pt-4 pb-4 md:pb-8 mt-0">
-                    <div className="w-full">
-                        <div className="logo-track flex items-center gap-6 md:gap-16 w-max">
-                            {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
-                                <img
-                                    key={idx}
-                                    src={logo}
-                                    alt={`Partner logo ${idx + 1}`}
-                                    className="h-6 sm:h-8 md:h-12 w-auto object-contain transition"
-                                    loading="eager"
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </section>
             </div>
+
+            {/* ✅ Full-width Moving Logo Carousel */}
+            <section className="logo-carousel overflow-hidden relative pt-2 md:pt-4 pb-4 md:pb-8 w-screen bg-white">
+                <div className="max-w-none mx-auto">
+                    <div className="logo-track flex items-center gap-10 md:gap-20 w-max px-4">
+                        {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
+                            <img
+                                key={idx}
+                                src={logo}
+                                alt={`Partner logo ${idx + 1}`}
+                                className="h-6 sm:h-8 md:h-12 w-auto object-contain transition"
+                                loading="eager"
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
 
 export default Hero;
-
