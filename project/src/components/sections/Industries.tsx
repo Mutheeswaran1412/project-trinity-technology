@@ -85,13 +85,14 @@ const Industries = () => {
       id="industries" 
       title="Industries We Serve"
       subtitle="Transforming businesses across diverse sectors with data-driven solutions"
+      className="py-20 px-10"
     >
       {/* Industry Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 mb-10">
+      <div className="flex flex-wrap justify-center gap-4 mb-12">
         {industries.map((industry) => (
           <button
             key={industry.id}
-            className={`px-4 py-2 rounded-full font-medium transition-colors ${
+            className={`px-6 py-3 text-lg rounded-full font-semibold transition-colors ${
               activeTab === industry.id
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -104,20 +105,20 @@ const Industries = () => {
       </div>
 
       {/* Industry Details */}
-      <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="rounded-lg overflow-hidden shadow-lg">
           <img 
             src={activeIndustry.image} 
             alt={activeIndustry.name} 
-            className="w-full h-80 object-cover"
+            className="w-full h-[400px] object-cover"
           />
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">{activeIndustry.name}</h3>
-          <p className="text-gray-600 mb-6">{activeIndustry.description}</p>
+          <h3 className="text-3xl font-bold text-gray-900 mb-6">{activeIndustry.name}</h3>
+          <p className="text-lg text-gray-600 mb-8">{activeIndustry.description}</p>
           
-          <div className="bg-gray-50 border-l-4 border-blue-500 p-4 mb-4">
-            <h4 className="font-semibold text-gray-800 mb-2">Success Story</h4>
+          <div className="bg-gray-50 border-l-4 border-blue-500 p-6 text-lg mb-6">
+            <h4 className="font-semibold text-gray-800 mb-3 text-xl">Success Story</h4>
             <p className="text-gray-700">{activeIndustry.caseStudy}</p>
           </div>
         </div>
@@ -127,3 +128,4 @@ const Industries = () => {
 };
 
 export default Industries;
+
