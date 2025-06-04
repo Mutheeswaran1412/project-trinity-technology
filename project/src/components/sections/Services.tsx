@@ -1,125 +1,157 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Section from '../ui/Section';
-import Card, { CardContent, CardTitle, CardDescription, CardImage } from '../ui/Card';
+import {
+  LineChart,
+  Database,
+  ShieldCheck,
+  BarChart,
+  Cloud,
+  BrainCircuit,
+  Users,
+  Briefcase, // Use Briefcase icon for ERP Planning
+} from 'lucide-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-const Industries = () => {
-  const [activeTab, setActiveTab] = useState('healthcare');
-
-  const industries = [
+const Services = () => {
+  const services = [
     {
-      id: 'healthcare',
-      name: 'Healthcare',
-      image: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg',
-      description: 'Helping healthcare providers improve patient outcomes through data-driven insights and predictive analytics.',
-      caseStudy: 'Reduced hospital readmission rates by 25% through predictive analytics and patient risk profiling.'
+      icon: <LineChart size={48} className="text-blue-600" />,
+      title: 'Data Strategy',
+      description:
+        'Crafting tailored data roadmaps to align with your business objectives and drive meaningful outcomes.',
     },
     {
-      id: 'finance',
-      name: 'Finance',
-      image: 'https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg',
-      description: 'Enabling financial institutions to make informed decisions, detect fraud, and enhance customer experiences.',
-      caseStudy: 'Implemented real-time fraud detection system that reduced fraudulent transactions by 60% for a leading banking institution.'
+      icon: <Database size={48} className="text-blue-600" />,
+      title: 'Data Engineering',
+      description:
+        'Building robust data infrastructures for seamless data flow, processing, and management across your organization.',
     },
     {
-      id: 'retail',
-      name: 'Retail',
-      image: 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg',
-      description: 'Optimizing inventory management, personalizing customer experiences, and forecasting trends for retailers.',
-      caseStudy: 'Developed demand forecasting model that improved inventory efficiency by 30% and reduced stockouts by 45%.'
+      icon: <ShieldCheck size={48} className="text-blue-600" />,
+      title: 'Data Governance & Management',
+      description:
+        'Ensuring data quality, security, and compliance with industry regulations and organizational policies.',
     },
     {
-      id: 'manufacturing',
-      name: 'Manufacturing',
-      image: 'https://images.pexels.com/photos/3846508/pexels-photo-3846508.jpeg',
-      description: 'Enhancing operational efficiency, quality control, and predictive maintenance in manufacturing processes.',
-      caseStudy: 'Implemented IoT analytics platform resulting in 40% reduction in equipment downtime and 15% increase in production efficiency.'
+      icon: <BarChart size={48} className="text-blue-600" />,
+      title: 'Business Intelligence',
+      description:
+        'Transforming data into actionable insights for informed decision-making through advanced analytics and reporting.',
     },
     {
-      id: 'telecom',
-      name: 'Telecommunications',
-      image: 'https://t4.ftcdn.net/jpg/04/35/60/39/360_F_435603999_qcRMI77UVgIk64kpL4y1cF6AtKZvX5PE.jpg',
-      description: 'Optimizing network performance, customer segmentation, and service quality for telecom providers.',
-      caseStudy: 'Reduced customer churn by 18% through predictive analytics and personalized retention strategies.'
+      icon: <Cloud size={48} className="text-blue-600" />,
+      title: 'Data Migration and Modernization',
+      description:
+        'Transitioning legacy systems to modern data platforms for improved performance, scalability, and cost-efficiency.',
     },
     {
-      id: 'it',
-      name: 'Information Technology',
-      image: 'https://media.istockphoto.com/id/1459941554/photo/global-communication-network-concept-digital-transformation.jpg?s=612x612&w=0&k=20&c=fpFsGOcELrE0_CjLCVud4A7kgrZJLSdFFmzNNCUGo7c=',
-      description: 'Providing innovative solutions for software development, cybersecurity, and IT infrastructure management.',
-      caseStudy: 'Implemented AI-driven automation reducing IT support ticket volume by 50%.'
+      icon: <BrainCircuit size={48} className="text-blue-600" />,
+      title: 'Artificial Intelligence',
+      description:
+        'Implementing AI solutions to drive innovation, automate processes, and uncover hidden patterns in your data.',
     },
     {
-      id: 'bfsi',
-      name: 'BFSI',
-      image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg',
-      description: 'Supporting banking, financial services, and insurance firms with advanced risk management and analytics.',
-      caseStudy: 'Enhanced customer experience through personalized AI-driven financial recommendations.'
+      icon: <Users size={48} className="text-blue-600" />,
+      title: 'Staffing Solutions',
+      description:
+        'Providing skilled data professionals to augment your team and accelerate project delivery with flexible staffing models.',
     },
     {
-      id: 'engineering',
-      name: 'Engineering',
-      image: 'https://img.freepik.com/premium-photo/car-engine-part-close-up-image-internal-combustion-engine_488220-4759.jpg?semt=ais_hybrid&w=740',
-      description: 'Driving innovation and efficiency in engineering sectors through smart design and data-driven processes.',
-      caseStudy: 'Developed AI-powered design tools reducing prototyping time by 30%.'
+      icon: <Briefcase size={48} className="text-blue-600" />,
+      title: 'ERP Planning',
+      description:
+        'Streamlining business processes and integrating core functions with tailored ERP solutions for operational efficiency.',
     },
-    {
-      id: 'renewable',
-      name: 'Renewable Energy',
-      image: 'https://archosengineering.com/wp-content/uploads/2024/02/Screenshot2024-02-02165336-1170x740.jpg',
-      description: 'Leveraging data-driven insights to optimize sustainable energy solutions and reduce carbon footprints.',
-      caseStudy: 'Developed predictive maintenance models reducing wind turbine downtime by 35%.'
-    },
-    {
-      id: 'oilgas',
-      name: 'Oil & Gas',
-      image: 'https://images.pexels.com/photos/3855961/pexels-photo-3855961.jpeg',
-      description: 'Enhancing operational efficiency, risk management, and safety in oil and gas industries.',
-      caseStudy: 'Implemented IoT-driven safety monitoring reducing hazardous incidents by 40%.'
-    }
   ];
 
-  const activeIndustry = industries.find(i => i.id === activeTab) || industries[0];
-
   return (
-    <Section 
-      id="industries" 
-      title="Industries We Serve"
-      subtitle="Transforming businesses across diverse sectors with data-driven solutions"
-      className="py-20 px-10"
+    <Section
+      id="services"
+      title="Our Services"
+      subtitle="Comprehensive data solutions tailored to your business needs"
+      className="bg-gray-50"
     >
-      {/* Industry Tabs */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {industries.map((industry) => (
-          <button
-            key={industry.id}
-            className={`px-6 py-3 text-lg rounded-full font-semibold transition-colors ${
-              activeTab === industry.id
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
-            onClick={() => setActiveTab(industry.id)}
-          >
-            {industry.name}
-          </button>
-        ))}
-      </div>
-
-      {/* Industry Details */}
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="rounded-lg overflow-hidden shadow-lg">
-          <img 
-            src={activeIndustry.image} 
-            alt={activeIndustry.name} 
-            className="w-full h-[400px] object-cover"
-          />
+      <div className="container mx-auto px-4 py-8">
+        {/* Desktop Layout - Grid with centered animation */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-3 gap-6 md:gap-8 relative mx-auto max-w-6xl">
+            {/* Animation in center */}
+            <div className="col-start-2 row-start-2 flex justify-center items-center z-20">
+              <DotLottieReact
+                src="https://lottie.host/abc637a9-8669-4167-9d37-f39faecbf35a/phzPSr5Ebn.lottie"
+                loop
+                autoplay
+                style={{ width: 320, height: 320 }}
+              />
+            </div>
+            
+            {/* Service Cards in a grid around the animation */}
+            {services.map((service, idx) => {
+              // Calculate grid position for each card
+              let colStart, rowStart;
+              
+              // Top row
+              if (idx === 0) { colStart = 1; rowStart = 1; }
+              else if (idx === 1) { colStart = 2; rowStart = 1; }
+              else if (idx === 2) { colStart = 3; rowStart = 1; }
+              // Middle row (excluding center)
+              else if (idx === 3) { colStart = 1; rowStart = 2; }
+              else if (idx === 4) { colStart = 3; rowStart = 2; }
+              // Bottom row
+              else if (idx === 5) { colStart = 1; rowStart = 3; }
+              else if (idx === 6) { colStart = 2; rowStart = 3; }
+              else { colStart = 3; rowStart = 3; }
+              
+              return (
+                <div
+                  key={service.title}
+                  style={{ gridColumn: colStart, gridRow: rowStart }}
+                >
+                  <div className="h-64 md:h-72 overflow-hidden bg-white rounded-lg shadow-lg group hover:cursor-pointer border border-transparent hover:border-2 hover:border-blue-600 transition-all duration-300 relative hover:shadow-2xl">
+                    {/* Frosted Overlay */}
+                    <div className="absolute inset-0 bg-white/40 backdrop-blur-[30px] z-10 rounded-lg pointer-events-none"></div>
+                    {/* Card Content */}
+                    <div className="relative z-20 p-4 md:p-6 flex flex-col justify-center items-center text-gray-900 h-full">
+                      <div className="mb-4 flex justify-center items-center w-full">{service.icon}</div>
+                      <h3 className="text-xl font-semibold mb-2 text-center">{service.title}</h3>
+                      <p className="text-sm text-gray-700 text-center">{service.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div>
-          <h3 className="text-3xl font-bold text-gray-900 mb-6">{activeIndustry.name}</h3>
-          <p className="text-lg text-gray-600 mb-8">{activeIndustry.description}</p>
+        
+        {/* Mobile Layout */}
+        <div className="md:hidden">
+          {/* Center Animation for Mobile */}
+          <div className="flex justify-center items-center mb-8">
+            <DotLottieReact
+              src="https://lottie.host/abc637a9-8669-4167-9d37-f39faecbf35a/phzPSr5Ebn.lottie"
+              loop
+              autoplay
+              style={{ width: 200, height: 200 }}
+            />
+          </div>
           
-          <div className="bg-gray-50 border-l-4 border-blue-500 p-6 text-lg mb-6">
-            <h4 className="font-semibold text-gray-800 mb-3 text-xl">Success Story</h4>
-            <p className="text-gray-700">{activeIndustry.caseStudy}</p>
+          {/* Service Cards Grid for Mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="relative h-60 overflow-hidden bg-white rounded-lg shadow-lg group hover:cursor-pointer border border-transparent hover:border-2 hover:border-blue-600 transition-all duration-300"
+              >
+                {/* Frosted Overlay */}
+                <div className="absolute inset-0 bg-white/40 backdrop-blur-[30px] z-10 rounded-lg pointer-events-none"></div>
+                {/* Card Content */}
+                <div className="relative z-20 p-4 flex flex-col justify-center items-center text-gray-900 h-full">
+                  <div className="mb-2 flex justify-center items-center w-full">{service.icon}</div>
+                  <h3 className="text-lg font-semibold mb-1 text-center">{service.title}</h3>
+                  <p className="text-xs text-gray-700 text-center">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -127,4 +159,4 @@ const Industries = () => {
   );
 };
 
-export default Industries;
+export default Services;
