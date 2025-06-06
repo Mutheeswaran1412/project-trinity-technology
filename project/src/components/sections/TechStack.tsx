@@ -35,9 +35,9 @@ const TechStack = () => {
       description: 'Comprehensive cloud platform offering computing power, storage, and content delivery.'
     },
     {
-     name:'Odoo',
-     logo:'https://cdn4.iconfinder.com/data/icons/logos-3/640/odoo_logo_rgb-512.png',
-     description:'Open-source business management software that integrates various applications like ERP, CRM, accounting, e-commerce, inventory, and project management into a single platform'
+      name: 'Odoo',
+      logo: 'https://cdn4.iconfinder.com/data/icons/logos-3/640/odoo_logo_rgb-512.png',
+      description: 'Open-source business management software that integrates various applications like ERP, CRM, accounting, e-commerce, inventory, and project management into a single platform'
     }
   ];
 
@@ -47,6 +47,7 @@ const TechStack = () => {
       title="Our Technology Stack"
       subtitle="Cutting-edge technologies powering our data solutions"
     >
+      {/* Technology Logos Grid */}
       <div className="flex flex-wrap justify-center gap-8">
         {technologies.map((tech, index) => (
           <div
@@ -66,33 +67,60 @@ const TechStack = () => {
         ))}
       </div>
 
-      {/* Databricks Partner Section with Animation */}
+      {/* Databricks Advertisement Section */}
       <div className="mt-16 flex justify-center">
-        <div className="bg-white p-10 rounded-2xl max-w-6xl w-full flex flex-col md:flex-row items-center shadow-lg border border-gray-200 hover:border-black transition-all duration-300">
-          {/* Animation Left */}
-          <div className="flex-shrink-0 mb-8 md:mb-0 md:mr-14 flex justify-center">
-            <DotLottieReact
-              src="https://lottie.host/6cbb0931-bb49-4480-a63f-119086917dc1/cgKGuBxPfU.lottie"
-              loop
-              autoplay
-              style={{ width: 420, height: 420 }}
-            />
-          </div>
-          {/* Text Right */}
-          <div className="flex-1 px-2 md:px-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6 text-left">Proud Databricks Partner</h3>
-            <p className="text-gray-700 mb-4 text-left text-lg leading-relaxed">
-              As a certified Databricks partner, we deliver secure, scalable, and innovative data solutions using the Databricks Lakehouse Platform. Our expertise helps organizations unlock insights, modernize infrastructure, and accelerate digital transformation.
-            </p>
-            <p className="text-black mb-4 text-left text-lg leading-relaxed">
-              With Databricks, we empower businesses to unify their data and drive better decision-making across the enterprise.
-            </p>
-            <p className="text-gray-700 mb-4 text-left text-lg leading-relaxed">
-              Our team specializes in advanced analytics, AI, and data engineering, ensuring seamless integration and high performance for your most critical workloads. We help you migrate, optimize, and innovate faster with Databricks.
-            </p>
-            <p className="text-black text-left text-lg leading-relaxed">
-              Partner with us to unlock the full potential of your data and accelerate your journey to becoming a truly data-driven organization.
-            </p>
+        <div className="bg-white p-10 rounded-2xl max-w-7xl w-full shadow-lg border border-gray-200 hover:border-black transition-all duration-300">
+          <div className="flex flex-col md:flex-row items-center">
+            {/* Left Column: Headline, Description, and Buttons */}
+            <div className="flex-1 px-4 md:pr-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                Elite Databricks Consulting Partner to turn data into AI-insights
+              </h3>
+              <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+                Leverage the power of Databricks' data intelligence platform to start your AI-driven transformation today.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition">
+                  Talk to Databricks Experts
+                </button>
+                <button className="bg-gray-300 text-gray-800 px-6 py-3 rounded-full font-bold hover:bg-gray-400 transition">
+                  See Success Stories
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column: Certificates Section */}
+            <div className="flex-1 px-4 mt-4 md:mt-0 flex flex-col items-center">
+              <div className="grid grid-cols-2 gap-4">
+                {/* Certificate: Data Associative Engineers */}
+                <div className="flex flex-col items-center">
+                  <a href="https://www.databricks.com/learn/certification/data-engineer-associate" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://www.databricks.com/sites/default/files/2024-05/associate-badge-de.png?v=1717145547"
+                      alt="10+ Certificates in Data Associative Engineers"
+                      className="w-40 h-auto object-contain hover:scale-105 transition-transform"
+                    />
+                  </a>
+                  <span className="mt-2 text-base font-semibold text-gray-900 text-center tracking-wide" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                    10+ Data Associative Engineers
+                  </span>
+                </div>
+                {/* Certificate: Professional Engineers */}
+                <div className="flex flex-col items-center">
+                  <a href="https://www.databricks.com/learn/certification/data-engineer-professional" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://www.databricks.com/sites/default/files/2024-05/professional-badge-de.png?v=1717145841"
+                      alt="2 Professional Engineers"
+                      className="w-40 h-auto object-contain hover:scale-105 transition-transform"
+                    />
+                  </a>
+                  <span className="mt-2 text-base font-semibold text-gray-900 text-center tracking-wide" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                     Professional Data Engineers
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
