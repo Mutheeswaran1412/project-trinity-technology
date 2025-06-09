@@ -3,7 +3,7 @@ import Button from '../ui/Button';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useInView } from "framer-motion";
-
+import mainhero from '../../animations/mainhero.lottie?url'
 const partnerLogos = [
     'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
     'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg',
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
                         className="flex justify-center items-center w-full h-full -mt-14"
                     >
                         <DotLottieReact
-                            src="https://lottie.host/a8037778-cf68-423b-8a82-d665927f90fa/oNfJ6iHKf9.lottie"
+                            src={mainhero}
                             loop
                             autoplay
                             style={{ width: '100%', maxWidth: 560, height: 560 }}
@@ -91,32 +91,32 @@ const Hero: React.FC = () => {
                     </motion.div>
                 </div>
 
-                {/* Footer Section */}
-                <div className="mt-14 md:mt-20 -mb-2">
-                    <div className="text-center mb-4 md:mb-8">
-                        <p className="text-black font-bold text-sm sm:text-base md:text-lg">
-                            Trusted by industry leaders in data and analytics
-                        </p>
-                    </div>
-                </div>
+               {/* Footer Section */}
+<div className="mt-8 md:mt-14 -mb-4"> 
+    <div className="text-center mb-4 md:mb-8">
+        <p className="text-black font-bold text-lg sm:text-2xl md:text-2xl">
+            Trusted by industry leaders in data and analytics
+        </p>
+    </div>
+</div>
             </div>
 
-            {/* ✅ Full-width Moving Logo Carousel */}
-            <section className="logo-carousel overflow-hidden relative pt-2 md:pt-4 pb-4 md:pb-8 w-screen bg-white">
-                <div className="max-w-none mx-auto">
-                    <div className="logo-track flex items-center gap-10 md:gap-20 w-max px-4">
-                        {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
-                            <img
-                                key={idx}
-                                src={logo}
-                                alt={`Partner logo ${idx + 1}`}
-                                className="h-6 sm:h-8 md:h-12 w-auto object-contain transition"
-                                loading="eager"
-                            />
-                        ))}
-                    </div>
-                </div>
-            </section>
+          {/* ✅ Full-width Moving Logo Carousel */}
+<section className="logo-carousel overflow-hidden relative mt-4 md:mt-8 pt-4 md:pt-6 pb-4 md:pb-8 w-screen bg-white">
+    <div className="max-w-none mx-auto">
+        <div className="logo-track flex items-center gap-10 md:gap-20 w-max px-4">
+            {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
+                <img
+                    key={idx}
+                    src={logo}
+                    alt={`Partner logo ${idx + 1}`}
+                    className="h-6 sm:h-8 md:h-12 w-auto object-contain transition"
+                    loading="eager"
+                />
+            ))}
+        </div>
+    </div>
+</section>
         </div>
     );
 };
