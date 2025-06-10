@@ -101,7 +101,6 @@ const Hero: React.FC = () => {
 </div>
             </div>
 
-          {/* ✅ Full-width Moving Logo Carousel */}
 <section className="logo-carousel overflow-hidden relative mt-4 md:mt-8 pt-4 md:pt-6 pb-4 md:pb-8 w-screen bg-white">
     <div className="max-w-none mx-auto">
         <div className="logo-track flex items-center gap-10 md:gap-20 w-max px-4">
