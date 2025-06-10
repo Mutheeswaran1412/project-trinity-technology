@@ -1,120 +1,121 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Logo from '../ui/Logo';
+
+import MegaMenuAbout from '../MegaMenus/MegaMenuAbout';
+import MegaMenuServices from '../MegaMenus/MegaMenuServices';
+import MegaMenuTechStack from '../MegaMenus/MegaMenuTechStack';
+import MegaMenuIndustries from '../MegaMenus/MegaMenuIndustries';
+import MegaMenuInsights from '../MegaMenus/MegaMenuInsights';
+import MegaMenuCareers from '../MegaMenus/MegaMenuCareers';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+      setActiveMenu(null);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'About', href: '#about', hasDropdown: true },
-    { name: 'Services', href: '#services', hasDropdown: true },
-    { name: 'Tech Stack', href: '#tech-stack', hasDropdown: true },
-    { name: 'Industries', href: '#industries', hasDropdown: true },
-    { name: 'Insights', href: '#insights', hasDropdown: true },
-    { name: 'Careers', href: '#careers', hasDropdown: true },
-    { name: 'Contact Us', href: '#contact', hasDropdown: false },
+    { name: 'About', key: 'about' },
+    { name: 'Services', key: 'services' },
+    { name: 'Tech Stack', key: 'tech-stack'},
+    { name: 'Industries', key: 'industries'},
+    { name: 'Insights', key: 'insights'},
+    { name: 'Careers', key: 'careers'},
   ];
 
-  return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-white py-4'
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        {/* Left: Logo */}
-        <a href="/" className="flex items-center">
-          <Logo className="h-8 w-auto" />
-        </a>
-        {/* Right: Nav */}
-        <nav className="hidden md:flex items-center space-x-8 ml-auto">
-          {navLinks.map((link) =>
-            link.name === 'Contact Us' ? (
-              <a
-                key={link.name}
-                href={link.href}
-                className="font-semibold bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors ml-2"
-              >
-                {link.name}
-              </a>
-            ) : (
-              <div
-                key={link.name}
-                className="relative group"
-                onMouseEnter={() => link.hasDropdown && setOpenDropdown(link.name)}
-                onMouseLeave={() => link.hasDropdown && setOpenDropdown(null)}
-              >
-                <a
-                  href={link.href}
-                  className={`flex items-center font-semibold text-black transition-colors relative group-hover:text-blue-600
-                    ${openDropdown === link.name ? 'text-blue-600' : ''}
-                  `}
-                >
-                  {link.name}
-                  {link.hasDropdown && (
-                    <ChevronDown size={16} className="ml-1" />
-                  )}
-                  <span
-                    className="block h-0.5 bg-blue-600 absolute left-0 right-0 bottom-[-6px] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"
-                    style={{ transformOrigin: 'left', transition: 'transform 0.3s' }}
-                  />
-                </a>
-                {/* Dropdown menu placeholder */}
-                {link.hasDropdown && openDropdown === link.name && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50">
-                    <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dropdown Item 1</a>
-                    <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dropdown Item 2</a>
-                  </div>
-                )}
-              </div>
-            )
-          )}
-        </nav>
-        {/* Mobile menu button */}
-        <button className="md:hidden ml-2" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} className="text-blue-600" /> : <Menu size={24} className="text-blue-600" />}
-        </button>
-      </div>
+  const renderMegaMenu = (key: string) => {
+    switch (key) {
+      case 'about':
+        return <MegaMenuAbout />;
+      case 'services':
+        return <MegaMenuServices />;
+      case 'tech-stack':
+        return <MegaMenuTechStack />;
+      case 'industries':
+        return <MegaMenuIndustries />;
+      case 'insights':
+        return <MegaMenuInsights />;
+      case 'careers':
+        return <MegaMenuCareers />;
+      default:
+        return null;
+    }
+  };
 
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="container mx-auto px-4 py-4">
-            <nav className="flex flex-col space-y-4">
-              {navLinks.map((link) =>
-                link.name === 'Contact Us' ? (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="font-semibold bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="font-semibold text-black hover:text-blue-600 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                )
-              )}
-            </nav>
+  return (
+    <>
+      <header
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-white shadow-md py-4' : 'bg-white py-5'
+        }`}
+      >
+        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center relative">
+          <a href="/" className="flex items-center">
+            <Logo className="h-10 w-auto" />
+          </a>
+
+          {/* Navigation Center */}
+          <nav className="hidden md:flex items-center space-x-8 ml-auto">
+            {navLinks.map((link) => (
+              <div
+                key={link.key}
+                className="relative"
+                onMouseEnter={() => setActiveMenu(link.key)}
+              >
+                <button className={`font-semibold transition-colors text-base py-2 px-1 ${
+                  activeMenu === link.key 
+                    ? 'text-blue-600 border-b-2 border-blue-600' 
+                    : 'text-black hover:text-blue-600'
+                }`}>
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </nav>
+
+          {/* Contact Us Button - Added Space After Careers */}
+          <a
+            href="#contact-us"
+            className="hidden md:inline-block font-semibold bg-blue-600 text-white px-6 py-2 rounded-md transition-colors hover:bg-blue-700 text-base ml-6"
+          >
+            Contact Us
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden ml-2" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={28} className="text-blue-600" /> : <Menu size={28} className="text-blue-600" />}
+          </button>
+        </div>
+      </header>
+
+      {/* Full Screen Mega Menu Overlay - Ensures menu stays open */}
+      {activeMenu && (
+        <div 
+          className="fixed inset-0 z-40 bg-black bg-opacity-20 backdrop-blur-sm"
+          onClick={() => setActiveMenu(null)} // Clicking outside closes the menu
+        >
+          {/* Mega Menu Content */}
+          <div 
+            className="absolute top-20 left-0 right-0 bg-white shadow-2xl border-t border-gray-200"
+            onMouseEnter={() => setActiveMenu(activeMenu)} // Keeps menu open when hovering
+            onMouseLeave={() => setActiveMenu(null)} // Closes only when leaving the menu area
+          >
+            <div className="container mx-auto px-6 py-12">
+              {renderMegaMenu(activeMenu)}
+            </div>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 
