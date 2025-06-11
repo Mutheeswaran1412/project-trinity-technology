@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Menu, X } from 'lucide-react';
 import Logo from '../ui/Logo';
 
-import MegaMenuAbout from '../MegaMenus/MegaMenuAbout';
-import MegaMenuServices from '../MegaMenus/MegaMenuServices';
-import MegaMenuTechStack from '../MegaMenus/MegaMenuTechStack';
-import MegaMenuIndustries from '../MegaMenus/MegaMenuIndustries';
-import MegaMenuInsights from '../MegaMenus/MegaMenuInsights';
-import MegaMenuCareers from '../MegaMenus/MegaMenuCareers';
+const MegaMenuAbout = lazy(() => import('../MegaMenus/MegaMenuAbout'));
+const MegaMenuServices = lazy(() => import('../MegaMenus/MegaMenuServices'));
+const MegaMenuTechStack = lazy(() => import('../MegaMenus/MegaMenuTechStack'));
+const MegaMenuIndustries = lazy(() => import('../MegaMenus/MegaMenuIndustries'));
+const MegaMenuInsights = lazy(() => import('../MegaMenus/MegaMenuInsights'));
+const MegaMenuCareers = lazy(() => import('../MegaMenus/MegaMenuCareers'));
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +26,10 @@ const Header = () => {
   const navLinks = [
     { name: 'About', key: 'about' },
     { name: 'Services', key: 'services' },
-    { name: 'Tech Stack', key: 'tech-stack'},
-    { name: 'Industries', key: 'industries'},
-    { name: 'Insights', key: 'insights'},
-    { name: 'Careers', key: 'careers'},
+    { name: 'Tech Stack', key: 'tech-stack' },
+    { name: 'Industries', key: 'industries' },
+    { name: 'Insights', key: 'insights' },
+    { name: 'Careers', key: 'careers' },
   ];
 
   const renderMegaMenu = (key: string) => {
@@ -82,7 +82,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Contact Us Button - Added Space After Careers */}
+          {/* Contact Us Button */}
           <a
             href="#contact-us"
             className="hidden md:inline-block font-semibold bg-blue-600 text-white px-6 py-2 rounded-md transition-colors hover:bg-blue-700 text-base ml-6"
@@ -97,20 +97,22 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Full Screen Mega Menu Overlay - Ensures menu stays open */}
+      {/* Full Screen Mega Menu Overlay */}
       {activeMenu && (
         <div 
           className="fixed inset-0 z-40 bg-black bg-opacity-20 backdrop-blur-sm"
-          onClick={() => setActiveMenu(null)} // Clicking outside closes the menu
+          onClick={() => setActiveMenu(null)}
         >
           {/* Mega Menu Content */}
           <div 
             className="absolute top-20 left-0 right-0 bg-white shadow-2xl border-t border-gray-200"
-            onMouseEnter={() => setActiveMenu(activeMenu)} // Keeps menu open when hovering
-            onMouseLeave={() => setActiveMenu(null)} // Closes only when leaving the menu area
+            onMouseEnter={() => setActiveMenu(activeMenu)}
+            onMouseLeave={() => setActiveMenu(null)}
           >
             <div className="container mx-auto px-6 py-12">
-              {renderMegaMenu(activeMenu)}
+              <Suspense fallback={<div>Loading...</div>}>
+                {renderMegaMenu(activeMenu)}
+              </Suspense>
             </div>
           </div>
         </div>
